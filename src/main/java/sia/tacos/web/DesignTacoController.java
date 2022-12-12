@@ -3,10 +3,7 @@ package sia.tacos.web;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import sia.tacos.Ingredient;
 import sia.tacos.Ingredient.Type;
@@ -100,5 +97,18 @@ public class DesignTacoController {
                 .stream()
                 .filter(ingredient -> ingredient.getType().equals(type))
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * processTaco - method that handle POST requests for /design
+     * @param taco - the object upon which the form attributes are bound when it's submitted
+     * @return the logical name of the view to be redirected to
+     * */
+    @PostMapping
+    public String processTaco(Taco taco, @ModelAttribute TacoOrder tacoOrder){
+        tacoOrder.addTaco(taco);
+        log.info("Processing taco: {}", taco);
+
+        return "redirect:/orders/current";
     }
 }
