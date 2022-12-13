@@ -23,14 +23,13 @@ public class DesignTacoController {
     /**
      * addIngredientsToModel - method that adds the selected taco
      * ingredients to the model
-     * @param model
+     * @param model - the object holding the model
      * */
     @ModelAttribute
+    @SuppressWarnings("SpellCheckingInspection")
     public void addIngredientsToModel(Model model){
 
-        /**
-         * Get all possible taco ingredients
-         * */
+        /* Get all possible taco ingredients */
         List<Ingredient> ingredients = Arrays.asList(
                 new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
                 new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
@@ -44,10 +43,7 @@ public class DesignTacoController {
         );
 
 
-        /**
-         * Get all the taco ingredient types and add model attribute for each
-         * given type
-         * */
+        /* Get all the taco ingredient types and add model attribute for each given type */
         Type[] types = Ingredient.Type.values();
         for (Type type: types){
             model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
@@ -111,4 +107,6 @@ public class DesignTacoController {
 
         return "redirect:/orders/current";
     }
+
+
 }
