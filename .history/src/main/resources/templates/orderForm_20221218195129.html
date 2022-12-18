@@ -62,24 +62,10 @@
 
       <label for="deliveryState" id="deliveryState">State: </label>
       <input type="text" th:field="*{deliveryState}" />
-      <span
-        class="validationError"
-        th:if="${#fields.hasErrors('deliveryState')}"
-        th:errors="*{deliveryState}"
-      >
-        Delivery state error
-      </span>
       <br />
 
       <label for="deliveryZip" id="deliveryZip">State: </label>
       <input type="text" th:field="*{deliveryZip}" />
-      <span
-        class="validationError"
-        th:if="${#fields.hasErrors('deliveryZip')}"
-        th:errors="*{deliveryZip}"
-      >
-        Delivery zip error
-      </span>
       <br />
 
       <!-- Payment method -->
@@ -91,30 +77,16 @@
         th:if="${#fields.hasErrors('ccNumber')}"
         th:errors="*{ccNumber}"
       >
-        CC Number error
+        CC Num Error
       </span>
       <br />
 
       <label for="ccExpiration" id="ccExpiration">Expiration: </label>
       <input type="text" th:field="*{ccExpiration}" />
-      <span
-        class="validationError"
-        th:if="${#fields.hasErrors('ccExpiration')}"
-        th:errors="*{ccExpiration}"
-      >
-        CC Expiration error
-      </span>
       <br />
 
       <label for="ccCVV" id="ccCVV">CVV: </label>
       <input type="text" th:field="*{ccCVV}" />
-      <span
-        class="validationError"
-        th:if="${#fields.hasErrors('ccCVV')}"
-        th:errors="*{ccCVV}"
-      >
-        CC CVV error
-      </span>
       <br />
 
       <input type="submit" value="Submit Order" />

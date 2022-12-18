@@ -28,7 +28,6 @@ public class IngredientByIdConverter implements Converter<String, Ingredient> {
                 new Ingredient("SLSA", "Salsa", Ingredient.Type.SAUCE),
                 new Ingredient("SRCR", "Sour Cream", Ingredient.Type.SAUCE)
         );
-        
         for(Ingredient ingredient: ingredients){
             ingredientMap.put(ingredient.getId(), ingredient);
         }

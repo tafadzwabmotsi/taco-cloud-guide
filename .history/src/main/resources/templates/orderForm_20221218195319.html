@@ -108,13 +108,6 @@
 
       <label for="ccCVV" id="ccCVV">CVV: </label>
       <input type="text" th:field="*{ccCVV}" />
-      <span
-        class="validationError"
-        th:if="${#fields.hasErrors('ccCVV')}"
-        th:errors="*{ccCVV}"
-      >
-        CC CVV error
-      </span>
       <br />
 
       <input type="submit" value="Submit Order" />
